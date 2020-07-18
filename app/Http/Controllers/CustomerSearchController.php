@@ -13,7 +13,7 @@ class CustomerSearchController extends Controller
 
     public function __construct()
     {
-        $this->myApplicationService = app()->make('myapplicationservice');
+        $this->myApplicationService = app()->make('App\MyServices\MyApplicationService');
     }
 
     /**

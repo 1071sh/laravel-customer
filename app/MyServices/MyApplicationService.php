@@ -6,6 +6,11 @@ class MyApplicationService
 {
     const ERROR_CODE_WRONG_START_TIMESTAMP = 1992;
 
+    public function getAgeFromBirthDate($date): int
+    {
+        return 9999;
+    }
+
     /**
      * 年齢を指定して 誕生日の始まりの日と終わりの日を返す
      * @param int $age 年齢を指定
