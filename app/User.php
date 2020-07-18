@@ -36,4 +36,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class);
+    }
+
+    public function customers()
+    {
+        return $this->hasMany(CustomerLog::class);
+    }
+
+    public function isSuserVisor(): bool
+    {
+        return $this['role_id'] === Role::SUPER_VISOR_ID;
+    }
+
+    public static function enumSupserVisor()
+    {
+        return User::where('role_id', '=', Role::SUPER_VISOR_ID)->get();
+    }
 }
