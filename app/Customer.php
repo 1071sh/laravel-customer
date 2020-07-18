@@ -7,8 +7,7 @@ use App\Events\KramerInComming;
 
 class Customer extends Model
 {
-    // すべてのプロパティを設定可能にするため,[]の空の配列を設定
-    protected $guarded = [];
+    protected $guarded = []; // すべてのプロパティを設定可能にするため,[]の空の配列を設定
 
     public function shop()
     {
@@ -19,4 +18,8 @@ class Customer extends Model
     {
         return $this->hasMany(CustomerLog::class);
     }
+
+    protected $dispatchesEvents = [
+        'created' => KramerInComming::class,
+    ];
 }
